@@ -1,5 +1,5 @@
 students = {}
-exersises = []
+exercises = []
 
 def add_student(students, exercises):
     number = input("give student number: ")
@@ -19,3 +19,23 @@ def add_student(students, exercises):
     students[number] = {"first_name": first, "last_name": last, "grades": grades}
 
     print("student added")
+
+
+
+
+
+while True:
+    print("1) add student")
+    print("2) add exercise grading")
+    print("3) view exercise")
+    print("4) view student")
+
+    choice = input("choose an option: ")
+
+    if choice == "1":
+        add_student(students, exercises)
+    elif choice == "2":
+        add_exercise(students, exercises)
+        # if statement for the rest of the options will be written when the rest of the functions view student and exercise are ready
+        # 3 view exercise
+        # 4 view student
