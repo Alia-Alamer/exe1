@@ -52,7 +52,34 @@ def add_exercise(students, exercises):
 
     print("exercise and grades added")
 
+def view_exercise(students, exercises):
+    ex_name = input("enter the exercise number: ")
 
+    if ex_name not in exercises:
+        print("exercise not found")
+        return
+
+    print(f"\nResults for exercise {ex_name}:")
+    for number, info in students.items():
+        points = info["grades"].get(ex_name, "no grade")
+        print(f"{info['first_name']} {info['last_name']} ({number}): {points}")
+    print()
+
+def view_student(students, exercises):
+    number = input("enter student number: ")
+
+    if number not in students:
+        print("student not found")
+        return
+
+    info = students[number]
+    print(f"\nStudent: {info['first_name']} {info['last_name']} ({number})")
+    if not info["grades"]:
+        print("no grades yet")
+    else:
+        for ex, pts in info["grades"].items():
+            print(f"  Exercise {ex}: {pts}")
+    print()
 
 while True:
     print("1) add student")
@@ -67,9 +94,10 @@ while True:
         add_student(students, exercises)
     elif choice == "2":
         add_exercise(students, exercises)
-        # if statement for the rest of the options will be written when the rest of the functions view student and exercise are ready
-        # 3 view exercise
-        # 4 view student
+    elif choice == "3":
+        view_exercise(students, exercises)
+    elif choice == "4":
+        view_student(students, exercises)
     elif choice == "5":
         print("Goodbye!")
         break
