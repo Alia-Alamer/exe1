@@ -26,10 +26,10 @@ def add_student(students, exercises):
     print("student added")
 
 def add_exercise(students, exercises):
-    ex_name = input("enter the name of the exercise: ")
+    ex_name = input("enter the number of the exercise: ")
 
     if not ex_name:
-        print("exercise name cannot be empty")
+        print("exercise number cannot be empty")
         return
 
     if ex_name in exercises:
